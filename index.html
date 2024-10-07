@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/iskcon-fevicon.png" type="image/gif" />
+    <title>ISKCON Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .banner-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .banner-image {
+            width: 100%;
+            height: auto; /* Set height to auto to maintain aspect ratio */
+            display: block; /* Ensure images are block-level elements */
+        }
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .desktop-image {
+                display: none; /* Hide desktop image on mobile */
+            }
+            .mobile-image {
+                display: block; /* Show mobile image */
+            }
+        }
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .desktop-image {
+                display: block; /* Show desktop image */
+            }
+            .mobile-image {
+                display: none; /* Hide mobile image on desktop */
+            }
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 30px;
+            padding: 20px; /* Add padding around the grid */
+            justify-items: center; /* Center grid items horizontally */
+        }
+        
+        .grid-item {
+            max-width: 450px; /* Set a max width for grid items */
+            width: 100%; /* Ensure they use full width up to max */
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow for depth */
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f1f1f1; /* Light border for definition */
+            background-color: #fff; /* White background for contrast */
+        }
+        
+        
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px; /* Consistent rounding */
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px); /* Slight lift effect on hover */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35); /* Deeper shadow on hover */
+        }
+        
+        .info {
+            position: absolute;
+            top: 0; /* Cover the entire area */
+            left: 0;
+            right: 0;
+            bottom: 0; /* Cover the entire area */
+            background: rgba(0, 0, 0, 0.80); /* Darker overlay for contrast */
+            color: #fff;
+            padding: 20px; /* Increased padding for a more spacious feel */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s;
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            text-align: center; /* Centered text for better layout */
+        }
+        
+        .grid-item:hover .info {
+            opacity: 1; /* Show info on hover */
+        }
+        
+        .contact-icons {
+            margin-top: 10px;
+        }
+        
+        .contact-icons i {
+            margin: 0 10px; /* Equal spacing around icons */
+            cursor: pointer;
+            color: #fff; /* Icon color */
+            transition: color 0.3s;
+        }
+        
+        .contact-icons i:hover {
+            color: #1b02bb; /* Highlight on hover */
+        }
+        
+        .phone-icon-container {
+            position: relative; /* Make the container relative for positioning the tooltip */
+            display: inline-block; /* Inline-block to keep the layout tidy */
+        }
+        
+        .tooltip {
+            visibility: hidden; /* Hide the tooltip by default */
+            width: 150px; /* Width of the tooltip */
+            background-color: black; /* Background color */
+            color: #fff; /* Text color */
+            text-align: center; /* Center the text */
+            border-radius: 6px; /* Rounded corners */
+            padding: 5px; /* Padding inside the tooltip */
+            position: absolute; /* Positioning */
+            z-index: 1; /* Ensure it appears above other elements */
+            bottom: 125%; /* Position above the icon */
+            left: 50%; /* Center it */
+            margin-left: -60px; /* Center adjustment */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s; /* Smooth transition */
+        }
+        
+        .phone-icon-container:hover .tooltip {
+            visibility: visible; /* Show tooltip on hover */
+            opacity: 1; /* Fade in */
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .header-text {
+            text-align: center; /* Center the header text */
+            padding: 20px; /* Add some padding */
+            font-size: 2em; /* Adjust font size as needed */
+            color: #333; /* Change text color */
+        }
+        p {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner-container">
+        <img src="images/bannerImagephone.jpeg" alt="Banner for Desktop" class="banner-image desktop-image">
+        <img src="images/bannerImage.jpeg" alt="Banner for Mobile" class="banner-image mobile-image">
+    </div>
+    <br/> <br/>
+       <h1 style="color: rgb(227, 24, 58); text-align:center;font-family:'Satisfy', handwriting" > A Haven of Spiritual Growth and Cultural Enrichment</h1>
+       <div class="rounded-box">
+        <p>
+            ISKCON Bangalore invites you to explore a life of true happiness, good health, and peace of mind - all inspired by authentic timeless Vedic wisdom revealed by Srila Prabhupada.
+            Through spiritual education, cultural enrichment, youth and women’s initiatives, pilgrimages, and more, we offer a nurturing space for personal and community growth. Join us on this journey toward spiritual growth and well-being, and experience the profound impact of our heartfelt, inclusive programs.
+        </p>
+    </div>
+    <style>
+        .rounded-box {
+            border: 2px solid rgb(227, 24, 58); /* Border color */
+            border-radius: 15px; /* Rounded corners */
+            padding: 20px; /* Padding inside the box */
+            background-color: #f9f9f9; /* Background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            max-width: 1000px; /* Max width of the box */
+            margin: 20px auto; /* Center the box */
+        }
+        p {
+            font-family: 'Roboto', sans-serif; /* Font style */
+            line-height: 1.6; /* Line height for readability */
+            color: #333; /* Text color */
+        }
+    </style>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="images/srila prabhupada's books.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Srila Prabhupada’s books</h3>
+                <p>Discover Srila Prabhupada’s timeless Vedic teachings, offering insights for overcoming anxiety and suffering. Pick one, start reading, and transform your life!</p>
+                <div class="contact-icons">
+                    <a href="mailto:sales.tsfgifts@hkm-group.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956 </span>
+                    </div>
+                    <a href="https://www.bhagavad-gita-as-it-is.org/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/holy name distribution.jpg" alt="Image 2">
+            <div class="info">
+                <h3>Holy Name Distribution</h3>
+                <p>Scriptures guide us to chant the holy names, freeing the mind from vices and fostering spiritual growth. Experience our Kirtans, Harinam Mantapa, and Chanters Club!</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956 </span>
+                    </div>
+                    <a href="https://iskconbangalore.org/activities/yuga-dharma" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/seva opportunities.jpg" alt="Image 3">
+            <div class="info">
+                <h3>Seva Opportunities</h3>
+                <p>Engage in selfless charity through our Life Patronship program, Festival Sevas, and more, purifying the heart and uplifting the spirit.</p>
+                <div class="contact-icons">
+                    <a href="mailto:donor.care@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 93791 56083"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 93791 56083</span>
+                    </div>
+                    <a href="https://www.iskconbangalore.org" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/career opportunities.jpg" alt="Image 4">
+            <div class="info">
+                <h3>Career Opportunities</h3>
+                <p>Join a team dedicated to serving humanity through spiritual outreach. Explore fulfilling career paths with ISKCON Bangalore.</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956</span>
+                    </div>
+                    <a href="https://iskconbangalore.org/careers/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/folk.jpg" alt="Image 1">
+            <div class="info">
+                <h3>FOLK – Friends of Lord Krishna</h3>
+                <p>Empower youth with timeless wisdom and meaningful values. Be part of a community of growth and self-discovery.</p>
+                <div class="contact-icons">
+                    <a href="mailto:info@folknet.in" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 93412 80068"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 93412 80068</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.folknet.in" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <img src="images/krishna ashraya.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Krishna Ashraya</h3>
+                <p>Deepen your spiritual connection with Krishna through inspiring courses and practices. Experience the joy of spiritual rejuvenation.</p>
+                <div class="contact-icons">
+                    <a href="mailto:krishna.ashraya@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <!--Phone no not given-->
+                        <a href="tel:"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip"></span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.krishnaashraya.com" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <img src="images/sadhika.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Sadhika</h3>
+                <p>Discover a nurturing space for spiritual growth and cultural enrichment for women. Begin your journey with Sadhika today.</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 97421 29316 "><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 97421 29316 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.example.com" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/krishna life.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Krishna Life</h3>
+                <p>Experience the bliss of aligning with Lord Krishna’s teachings. Join Krishna Life, now in over a dozen Bengaluru communities, and discover harmony.</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 80-23471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 80-23471956</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.krishnalife.org" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <img src="images/Iskcon Samskriti.jpg" alt="Image 1">
+            <div class="info">
+                <h3>ISKCON Samskriti</h3>
+                <p>Nurture young minds with India’s sacred traditions.
+                     Help your children grow spiritually and culturally with us.</p>
+                <div class="contact-icons">
+                    <a href="mailto:info@iskconsamskriti.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 93798 89493 "><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 93798 89493 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://iskconsamskriti.org/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/pilgrimage tours.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Pilgrimage Tours</h3>
+                <p>Immerse yourself in sacred pilgrimages that offer deep spiritual connection and devotion. Journey with us to the Lord’s holy places.</p>
+                <div class="contact-icons">
+                    <a href="mailto:iskcon.pilgrimages@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 93791 55555"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 93791 55555</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://pilgrimage.iskconbangalore.org" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/heirtage tours.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Heritage Tours</h3>
+                <p>Experience guided educational tours that impart life skills through travel,
+                     offering enriching journeys for students, teachers, and parents alike.</p>
+                <div class="contact-icons">
+                    <a href="mailto:info@heritagetours.in" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 96069 16268 "><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 96069 16268 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.heritagetours.in" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="grid-item">
+            <img src="images/goloka seva trust.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Goloka Seva Trust</h3>
+                <p>Support spiritual outreach while relishing our pure, natural incense. Every purchase uplifts both your home and heart.</p>
+                <div class="contact-icons">
+                    <a href="mailto:info@golokaincense.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 63660 04470"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 63660 04470</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.golokaonline.in" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/volunteering.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Volunteering</h3>
+                <p>Offer your talents in divine service. Explore volunteering opportunities that foster personal growth and provide spiritual fulfillment.</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://iskconbangalore.org/volunteer" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <img src="images/social media community.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Social Media Community</h3>
+                <p>Cultivate Bhakti online and connect with Krishna anywhere. Enrich your day with spiritual content from ISKCON Bangalore’s vibrant community!</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.iskconbangalore.org/social/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/magazines.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Magazines</h3>
+                <p>Explore Krishna Voice and Bhaktivedanta Darshana magazines for profound spiritual teachings, inspiring articles, recipes, and engaging activities. Join today!</p>
+                <div class="contact-icons">
+                    <a href="mailto:" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.krishnavoice.org/ " title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/higher taste.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Higher Taste Restaurant</h3>
+                <p>Experience divine vegetarian dining at The Higher Taste in Bangalore, featuring sattvic buffets and à la carte options prepared with care!</p>
+                <div class="contact-icons">
+                    <a href="mailto:support@highertaste.in" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 80-23575333 "><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 80-23575333 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://iskconhighertaste.com" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+
+         
+        <div class="grid-item">
+            <img src="images/guest house.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Guest House (Yatri Nivas)</h3>
+                <p>Experience peaceful, spiritually enriching stays at Yatri Nivas, surrounded by the divine ambiance of ISKCON temple.</p>
+                <div class="contact-icons">
+                    <a href="mailto:guest.house@hkm-group.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 80-23578351  "><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 80-23578351 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://iskconbangalore.org/guest-house" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/Convention Halls.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Convention Halls</h3>
+                <p>Celebrate life’s special moments in ISKCON’s sacred spaces, infused with spiritual grace and care for all your events.</p>
+                <div class="contact-icons">
+                    <a href="mailto:km.hkhill@hkm-group.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 9343939022"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 9343939022 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://iskconbangalore.org/kalyana-mantap/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/hare krishna farm.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Hare Krishna Farm</h3>
+                <p>Hare Krishna Nature Farm beautifully reflects Srila Prabhupada’s vision of sustainable agriculture and self-sufficient communities living in harmony with nature.</p>
+                <div class="contact-icons">
+                    <a href="mailto:km.hkhill@hkm-group.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 8023471956"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 8023471956 </span> <!-- Tooltip for phone number -->
+                    </div>
+                    <!--website link not given-->
+                    <a href="https://iskconbangalore.org/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="images/basil woods institutions.jpg" alt="Image 1">
+            <div class="info">
+                <h3>Basil Woods Institutions</h3>
+                <p>Offer your child a transformative education rooted in Indian values, nurturing wisdom, character, and knowledge through world-class curriculum.</p>
+                <div class="contact-icons">
+                    <a href="mailto:connect@iskconbangalore.org" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="phone-icon-container">
+                        <a href="tel:+91 78469 09009"><i class="fas fa-phone"></i></a>
+                        <span class="tooltip">+91 78469 09009</span> <!-- Tooltip for phone number -->
+                    </div>
+                    <a href="https://www.basilwoods.in/" title="Visit Website" target="_blank"><i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>
