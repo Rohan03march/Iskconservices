@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
     <style>
+        :root {
+            --grid-gap-vertical: 30px; /* New vertical gap */
+            --grid-gap-horizontal: 50px; /* Horizontal gap remains the same */
+        }
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -27,13 +31,13 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            gap: var(--grid-gap-vertical) var(--grid-gap-horizontal);
             padding: 20px;
             justify-items: center;
         }
         
         .grid-item {
-            max-width: 450px;
+            max-width: 1000px;
             width: 100%;
             position: relative;
             overflow: hidden;
@@ -49,18 +53,19 @@
             border-radius: 12px;
         }
         h2 {
-            font-family:'Satisfy', handwriting;
+            font-family:'Roboto', sans-serif;
             color: #1E4D67;
-            background-color: #edf1f3;
+            background-color: #f1f4f5;
             border-radius: 2rem;
             font-size: 32px;
         }
         .info {
             background: rgba(247, 245, 245, 0.95); /* Slightly lighter background for readability */
             color: #333;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
         }
+       
         
         .contact-icons {
             margin-top: 10px;
@@ -110,7 +115,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
         @media (max-width: 480px) {
             .grid-container {
                 grid-template-columns: 1fr;
@@ -177,7 +181,7 @@
         <img src="images/IBPhone.jpg" alt="Banner for Mobile" class="banner-image mobile-image">
     </div>
     <br/> <br/>
-       <h1 style="color: #1E4D67; text-align:center;font-family:'Satisfy', handwriting" class="heading" > A Haven of Spiritual Growth and Cultural Enrichment</h1>
+       <h1 style="color: #1E4D67; text-align:center;font-family:'Roboto', sans-serif" class="heading" > A Haven of Spiritual Growth and Cultural Enrichment</h1>
        <div class="rounded-box">
         <p>
            <b> ISKCON Bangalore</b> invites you to explore a life of true happiness, good health, and peace of mind - all inspired by authentic timeless Vedic wisdom revealed by <b> Srila Prabhupada</b>.
