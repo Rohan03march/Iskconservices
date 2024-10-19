@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
     <style>
         :root {
-            --grid-gap-vertical: 40px; /* New vertical gap */
+            --grid-gap-vertical: 50px; /* New vertical gap */
             --grid-gap-horizontal: 1px; /* Horizontal gap remains the same */
         }
         body {
@@ -114,10 +114,16 @@
             .grid-container {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .grid-item {
+                width: 100%;
+            }
         }
         @media (max-width: 480px) {
             .grid-container {
                 grid-template-columns: 1fr;
+            }
+            .grid-item {
+                width: 100%;
             }
         }
         
