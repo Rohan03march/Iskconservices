@@ -66,16 +66,24 @@
             text-align: center;
         }
        
+        .info h2 {
+            padding: 0px;
+            margin-top: 5px;
+        }
+        .info .bordered-paragraph {
+            margin-top: -20px;
+        }
         
         .contact-icons {
             margin-top: 10px;
         }
         
         .contact-icons i {
-            margin: 0 10px;
+            margin: 0 30px;
             cursor: pointer;
             transition: color 0.3s;
             color: #1E4D67;
+            font-size: 30px;
         }
         
         .contact-icons i:hover {
@@ -152,7 +160,7 @@
             }
         }
         .rounded-box {
-            border: 2px solid #1E4D67; /* Border color */
+            border: 2px solid #ffffff; /* Border color */
             border-radius: 15px; /* Rounded corners */
             padding: 20px; /* Padding inside the box */
             background-color: #f1ecec; /* Background color */
@@ -168,14 +176,26 @@
             text-align: center;
         }
         .bordered-paragraph {
-            border: 1px solid #ccc; /* Change the color as needed */
-            padding: 10px; /* Add some padding for better spacing */
+            padding: 5px; /* Add some padding for better spacing */
             border-radius: 5px; /* Optional: adds rounded corners */
             margin: 10px 0; /* Optional: adds space above and below */
+            font-size: 20px;
         } 
+
         @media (max-width:600px) {
             .rounded-box {
                 margin:20px 7px ;
+            }
+            .contact-icons i {
+                margin: 0 20px;
+                font-size: 35px;
+            }
+            .bordered-paragraph {
+                font-size: 23px;
+            } 
+            .info h2 {
+                padding: 0px;
+                margin-top: 5px;
             }
         }
     </style>
@@ -198,7 +218,7 @@
         <div class="grid-item">
             <img src="images/srila prabhupada's books.jpg" alt="Image 1">
             <div class="info">
-                <h2>Srila Prabhupada’s books</h3>
+                <h2>Srila Prabhupada’s books</h2>
                 <p class="bordered-paragraph">Discover Srila Prabhupada’s timeless Vedic teachings, offering insights for overcoming anxiety and suffering. Pick one, start reading, and transform your life!</p>
                 <div class="contact-icons">
                     <a href="mailto:sales.tsfgifts@hkm-group.org" title="Sales.tsfgifts@hkm-group.org"><i class="fas fa-envelope"></i></a>
@@ -351,7 +371,7 @@
             </div>
         </div>
         <div class="grid-item">
-            <img src="images/heirtage tours.jpg" alt="Image 1">
+            <img src="images/heritage tours.jpg" alt="Image 1">
             <div class="info">
                 <h2>Heritage Tours</h3>
                 <p class="bordered-paragraph">Experience guided educational tours that impart life skills through travel,
@@ -625,7 +645,7 @@
     <!--Footer -->
     </body>
     <!--Disable dev tool-->
-     <script>
+     <!-- <script>
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
@@ -635,5 +655,5 @@
                 e.preventDefault();
             }
         });
-    </script>
+    </script> -->
 </html>
